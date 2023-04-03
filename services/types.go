@@ -1,10 +1,8 @@
 package services
 
-import (
-	p2p "github.com/taubyte/go-interfaces/p2p"
-)
+import peer "github.com/taubyte/go-interfaces/p2p/peer"
 
 type Service interface {
-	Node() p2p.Node
+	Node() peer.Node
 	Close()
 }

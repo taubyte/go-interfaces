@@ -3,7 +3,6 @@ package streams
 import (
 	"io"
 
-	"bitbucket.org/taubyte/p2p/streams"
 	"github.com/libp2p/go-libp2p/core/network"
 )
 
@@ -14,6 +13,10 @@ type Connection interface {
 }
 
 type Command interface {
-	Connection() (streams.Connection, error)
+	Connection() (Connection, error)
 	Encode(io.Writer) error
+}
+
+type Response interface {
+	Encode(s io.Writer) error
 }

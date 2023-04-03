@@ -1,11 +1,11 @@
 package tns
 
 import (
-	"bitbucket.org/taubyte/go-interfaces/services"
-	kv "bitbucket.org/taubyte/kvdb/database"
+	"github.com/taubyte/go-interfaces/kvdb"
+	"github.com/taubyte/go-interfaces/services"
 )
 
 type Service interface {
 	services.Service
-	KV() *kv.KVDatabase
+	KV() kvdb.KVDB
 }

@@ -5,10 +5,10 @@ import (
 	"io"
 
 	"github.com/ipfs/go-cid"
-	p2p "github.com/taubyte/go-interfaces/p2p"
+	peer "github.com/taubyte/go-interfaces/p2p/peer"
 )
 
 type Service interface {
-	GetFile(ctx context.Context, cid cid.Cid) (p2p.ReadSeekCloser, error)
+	GetFile(ctx context.Context, cid cid.Cid) (peer.ReadSeekCloser, error)
 	AddFile(r io.Reader) (cid.Cid, error)
 }
