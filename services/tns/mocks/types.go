@@ -9,6 +9,7 @@ import (
 type MockedTns interface {
 	tns.Client
 	Inject(interface{}, InjectConfig) error
+	Delete(tns.Path)
 }
 
 type mockTns struct {

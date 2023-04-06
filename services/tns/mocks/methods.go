@@ -56,9 +56,12 @@ func (m *mockedObject) Current(branch string) ([]tns.Path, error) {
 		return nil, fmt.Errorf("invalid type for mocked object, `%T` expected `[]string`", m.value)
 	}
 
-	return []tns.Path{
-		&mockedPath{path: currentPaths[0]},
-	}, nil
+	tnsPaths := []tns.Path{}
+	for _, _path := range currentPaths {
+		tnsPaths = append(tnsPaths, &mockedPath{path: _path})
+	}
+
+	return tnsPaths, nil
 }
 
 func (m *mockedPath) String() string {
@@ -128,4 +131,10 @@ func (m *mockTns) Inject(structure interface{}, config InjectConfig) error {
 	}
 
 	return nil
+}
+
+func (m *mockTns) Delete(path tns.Path) {
+	m.lock.Lock()
+	delete(m.mapDef, path.String())
+	m.lock.Unlock()
 }
