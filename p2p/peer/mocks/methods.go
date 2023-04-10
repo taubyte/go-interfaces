@@ -96,23 +96,3 @@ func (m *mockNode) Context() context.Context {
 func (m *mockReadSeekCloser) Close() error {
 	return nil
 }
-
-// func (m *mockNode) BootstrapPeers() []peer.AddrInfo {
-
-// }
-
-// func (m *mockNode) DAG() ipfs.Peer {
-
-// }
-
-// func (m *mockNode) Discovery() discovery.Discovery {
-
-// }
-
-// func (m *mockNode) Done() <-chan struct{} {
-
-// }
-
-// func (m *mockNode) ID() peer.ID {
-
-// }
