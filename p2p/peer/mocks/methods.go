@@ -15,7 +15,6 @@ import (
 func (m *mockNode) add(r io.Reader) (_cid cid.Cid, err error) {
 	var data []byte
 
-	cid.CidFromReader(r)
 	if data, err = io.ReadAll(r); err != nil {
 		return
 	}
