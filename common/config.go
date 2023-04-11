@@ -22,14 +22,17 @@ type SimpleConfig struct {
 }
 
 func (c *ServiceConfig) Clone() *ServiceConfig {
-	cclone := new(ServiceConfig)
-	cclone.CommonConfig = c.CommonConfig
-	cclone.Ctx = c.Ctx
-	cclone.Others = make(map[string]int)
-	for k, v := range c.Others {
-		cclone.Others[k] = v
+	clone := &ServiceConfig{
+		CommonConfig: c.CommonConfig,
+		Ctx:          c.Ctx,
+		Others:       make(map[string]int, 0),
 	}
-	return cclone
+
+	for key, value := range c.Others {
+		clone.Others[key] = value
+	}
+
+	return clone
 }
 
 type ClientConfig struct {

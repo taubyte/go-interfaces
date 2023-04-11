@@ -12,20 +12,22 @@ import (
 	"github.com/taubyte/go-interfaces/p2p/peer"
 )
 
-var cidPrefix = cid.Prefix{
-	Version:  1,
-	Codec:    uint64(mc.Raw),
-	MhType:   mh.SHA2_256,
-	MhLength: -1,
-}
-
 func (m *mockNode) add(r io.Reader) (_cid cid.Cid, err error) {
 	var data []byte
+
+	cid.CidFromReader(r)
 	if data, err = io.ReadAll(r); err != nil {
 		return
 	}
 
-	if _cid, err = cidPrefix.Sum(data); err != nil {
+	prefix := cid.Prefix{
+		Version:  1,
+		Codec:    uint64(mc.Raw),
+		MhType:   mh.SHA2_256,
+		MhLength: -1,
+	}
+
+	if _cid, err = prefix.Sum(data); err != nil {
 		return
 	}
 
