@@ -7,8 +7,6 @@ type MockedPlugin interface {
 }
 
 type mockPlugin struct {
-	Memories     []*vm.HostModuleMemoryDefinition
-	Globals      []*vm.HostModuleGlobalDefinition
 	InstanceFail bool
 }
 
@@ -16,10 +14,7 @@ type MockedPluginInstance interface {
 	vm.PluginInstance
 }
 
-type mockPluginInstance struct {
-	Memories []*vm.HostModuleMemoryDefinition
-	Globals  []*vm.HostModuleGlobalDefinition
-}
+type mockPluginInstance struct{}
 
 type MockedModuleInstance interface {
 	vm.ModuleInstance

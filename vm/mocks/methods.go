@@ -16,7 +16,7 @@ func (m *mockPlugin) New(instance vm.Instance) (vm.PluginInstance, error) {
 		return nil, errors.New("mock failure")
 	}
 
-	return &mockPluginInstance{Memories: m.Memories, Globals: m.Globals}, nil
+	return &mockPluginInstance{}, nil
 }
 
 func (m *mockPlugin) Name() string {
@@ -26,20 +26,6 @@ func (m *mockPlugin) Name() string {
 func (m *mockPluginInstance) Load(hostModule vm.HostModule) (vm.ModuleInstance, error) {
 	if hostModule == nil {
 		return nil, errors.New("host module is nil")
-	}
-
-	if len(m.Memories) > 0 {
-		for _, memory := range m.Memories {
-			if err := hostModule.Memory(memory); err != nil {
-				return nil, err
-			}
-		}
-	}
-
-	if len(m.Globals) > 0 {
-		if err := hostModule.Globals(m.Globals); err != nil {
-			return nil, err
-		}
 	}
 
 	return &mockModuleInstance{}, nil

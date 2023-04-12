@@ -11,16 +11,22 @@ import (
 type Context interface {
 	// Context returns the go context of the function instance.
 	Context() context.Context
+
 	// Close calls the go context cancel method.
 	Close() error
+
 	// Project returns the Taubyte project id
 	Project() string
+
 	// Application returns the application, if none returns an empty string
 	Application() string
+
 	// Resource returns the id of the resource being used.
 	Resource() string
+
 	// Branch returns the branch name used by this resource execution pipeline.
 	Branch() string
+
 	// Commit returns the commit id used by this resource execution pipeline.
 	Commit() string
 }
@@ -58,10 +64,13 @@ type Source interface {
 type SourceModule interface {
 	// Source returns the raw data of the source
 	Source() []byte
+
 	// Imports returns functions, and memories required for instantiation
 	Imports() []string
+
 	// Imports returns functions, and memories for the specific module.
 	ImportsByModule(name string) []string
+
 	// ImportsFunction returns a boolean based on existence of a function in given module.
 	ImportsFunction(module, name string) bool
 }
@@ -92,49 +101,51 @@ type HostModuleMemoryDefinition struct {
 }
 
 type HostModule interface {
-	// Function adds the function definition to the HostModule
-	Function(*HostModuleFunctionDefinition) error
-	// Function adds multiple function definitions to the HostModule
-	Functions([]*HostModuleFunctionDefinition) error
-	// Memory adds the memory definition to the HostModule
-	Memory(*HostModuleMemoryDefinition) error
-	// Global adds the global definition to the HostModule
-	Global(*HostModuleGlobalDefinition) error
-	// Globals adds multiple global definitions to the HostModule
-	Globals([]*HostModuleGlobalDefinition) error
+	// Functions adds the function definitions to the HostModule
+	Functions(...*HostModuleFunctionDefinition) error
+
+	// Memory adds the memory definitions to the HostModule
+	Memories(...*HostModuleMemoryDefinition) error
+
+	// Globals adds the global definitions to the HostModule
+	Globals(...*HostModuleGlobalDefinition) error
+
 	// Compile will compile the defined HostModule, and return a ModuleInstance
 	Compile() (ModuleInstance, error)
 }
 
+type HostModuleDefinitions struct {
+	Functions []*HostModuleFunctionDefinition
+	Memories  []*HostModuleMemoryDefinition
+	Globals   []*HostModuleGlobalDefinition
+}
 type Instance interface {
 	// Context returns the context of the function Instance
 	Context() Context
+
 	// Close will close the Instance
 	Close() error
-	// Runtime returns a Runtime with  the HostModuleFunctionDefinitions
-	Runtime(...*HostModuleFunctionDefinition) (Runtime, error)
+
+	// Load will Load the runtime with the host module.
+	Load(*HostModuleDefinitions) error
+
+	// Attach will attach plugins to the module instance
+	Attach(Plugin) (PluginInstance, ModuleInstance, error)
+
+	// Module will instantiate the module instance
+	Module(name string) (ModuleInstance, error)
+
+	// Expose returns a HostModule with the given name
+	Expose(name string) (HostModule, error)
+
 	// Filesystem returns the filesystem used by the given Instance.
 	Filesystem() afero.Fs
-	// Stdout returns the Reader interface of stdout
-	Stdout() io.Reader
-	// Stderr returns the Reader interface of stderr
-	Stderr() io.Reader
-}
 
-type Runtime interface {
-	// Module returns the ModuleInstance of the given module name.
-	// A module name is in format <type>/<name>
-	Module(name string) (ModuleInstance, error)
-	// Expose returns a new HostModule, with the given name
-	Expose(name string) (HostModule, error)
-	// Attach will return a PluginInstance, and ModuleInstance of a Runtime with attached plugins
-	Attach(plugin Plugin) (PluginInstance, ModuleInstance, error)
 	// Stdout returns the Reader interface of stdout
 	Stdout() io.Reader
+
 	// Stderr returns the Reader interface of stderr
 	Stderr() io.Reader
-	// Close will close the runtime
-	Close() error
 }
 
 type ModuleInstance interface {
@@ -145,6 +156,7 @@ type ModuleInstance interface {
 type FunctionInstanceCommon interface {
 	// Timeout will assign a timeout the FunctionInstance
 	Timeout(timeout time.Duration) FunctionInstance
+
 	// Cancel will cancel the context of the FunctionInstance
 	Cancel() error
 }
@@ -157,6 +169,7 @@ type FunctionInstance interface {
 type Return interface {
 	// Returns an error
 	Error() error
+
 	// Reflect assigns the return values to the given args
 	Reflect(args ...interface{}) error
 }
@@ -164,8 +177,10 @@ type Return interface {
 type PluginInstance interface {
 	// Load will load all Factories to the HostModule, and return the ModuleInstance
 	Load(HostModule) (ModuleInstance, error)
+
 	// Close will close the PluginInstance
 	Close() error
+
 	// LoadFactory will load a single Factory on the HostModule
 	LoadFactory(factory Factory, hm HostModule) error
 }
@@ -173,8 +188,10 @@ type PluginInstance interface {
 type Factory interface {
 	// Load will initialize the Factory
 	Load(hm HostModule) error
+
 	// Close will close and cleanup the Factory
 	Close() error
+
 	// Name returns the name of the Factory
 	Name() string
 }
@@ -183,6 +200,7 @@ type Factory interface {
 type Plugin interface {
 	// New creates a new PluginInstance
 	New(Instance) (PluginInstance, error)
+
 	// Name returns the name of the Plugin
 	Name() string
 }
