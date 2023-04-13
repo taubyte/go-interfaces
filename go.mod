@@ -2,24 +2,32 @@ module github.com/taubyte/go-interfaces
 
 go 1.19
 
+// Taubyte Direct Imports
 require (
+	github.com/taubyte/go-simple-container v0.4.2
+	github.com/taubyte/go-specs v0.9.7
+	github.com/taubyte/http v0.9.0
+	github.com/taubyte/utils v0.1.5
+)
+
+// Direct Imports
+require (
+	github.com/ipfs/go-cid v0.4.0
 	github.com/ipfs/go-datastore v0.6.0
 	github.com/ipfs/go-ipfs-blockstore v1.3.0
 	github.com/ipfs/go-ipld-format v0.4.0
+	github.com/ipfs/go-log/v2 v2.5.1
 	github.com/ipfs/go-unixfs v0.4.4
 	github.com/libp2p/go-libp2p v0.26.3
+	github.com/libp2p/go-libp2p-core v0.20.1
 	github.com/libp2p/go-libp2p-pubsub v0.9.3
 	github.com/multiformats/go-multicodec v0.8.1
 	github.com/multiformats/go-multihash v0.2.1
 	github.com/spf13/afero v1.9.5
-	github.com/taubyte/utils v0.1.5
 	golang.org/x/net v0.8.0
 )
 
-replace github.com/taubyte/utils => ../../Repos/utils
-
-replace github.com/taubyte/go-specs => ../../Repos/go-specs
-
+// Inderect Imports
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20230124172434-306776ec8161 // indirect
 	github.com/Microsoft/go-winio v0.5.2 // indirect
@@ -130,6 +138,7 @@ require (
 	golang.org/x/mod v0.9.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
+	golang.org/x/text v0.8.0 // indirect
 	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af // indirect
 	golang.org/x/tools v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
@@ -138,14 +147,4 @@ require (
 	google.golang.org/protobuf v1.30.0 // indirect
 	gotest.tools/v3 v3.4.0 // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
-)
-
-require (
-	github.com/ipfs/go-cid v0.4.0
-	github.com/ipfs/go-log/v2 v2.5.1
-	github.com/libp2p/go-libp2p-core v0.20.1
-	github.com/taubyte/go-simple-container v0.4.2
-	github.com/taubyte/go-specs v0.9.6
-	github.com/taubyte/http v0.9.0
-	golang.org/x/text v0.8.0 // indirect
 )
