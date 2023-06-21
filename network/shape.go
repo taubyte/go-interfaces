@@ -6,5 +6,6 @@ type Shape struct {
 }
 
 type Ports struct {
-	P2P map[string]int `yaml:"p2p"`
+	Main map[string]int
+	Lite map[string]int
 }
