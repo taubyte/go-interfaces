@@ -26,4 +26,6 @@ type Plugin interface {
 
 	// Name returns the name of the Plugin
 	Name() string
+
+	Close() error
 }
