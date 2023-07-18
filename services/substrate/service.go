@@ -1,7 +1,7 @@
 package substrate
 
 import (
-	"github.com/taubyte/go-interfaces/moody"
+	logging "github.com/ipfs/go-log/v2"
 	"github.com/taubyte/go-interfaces/services"
 	"github.com/taubyte/go-interfaces/services/http"
 	"github.com/taubyte/go-interfaces/services/substrate/counters"
@@ -18,7 +18,7 @@ type Service interface {
 	// Vm Returns the  VM service attached to the Substrate
 	Vm() vm.Service
 	// Logger returns the logger for the Substrate
-	Logger() moody.Logger
+	Logger() logging.StandardLogger
 	// Tns returns the Tns client attached to the Substrate
 	Tns() tns.Client
 	// Branch returns the branch the Substrate listens to
