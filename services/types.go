@@ -5,6 +5,6 @@ import (
 )
 
 type Service interface {
-	Node() *peer.Node
+	Node() peer.Node
 	Close() error
 }

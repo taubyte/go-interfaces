@@ -4,11 +4,11 @@ import (
 	goHttp "net/http"
 	"time"
 
-	"github.com/taubyte/go-interfaces/services/http"
 	"github.com/taubyte/go-interfaces/services/substrate/common"
 	"github.com/taubyte/go-interfaces/services/substrate/counters"
 	smartOps "github.com/taubyte/go-interfaces/services/substrate/smartops"
 	structureSpec "github.com/taubyte/go-specs/structure"
+	http "github.com/taubyte/http"
 )
 
 type Service interface {
