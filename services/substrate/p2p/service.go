@@ -6,16 +6,17 @@ import (
 
 	"github.com/ipfs/go-cid"
 	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/taubyte/go-interfaces/p2p/streams"
 	"github.com/taubyte/go-interfaces/services/substrate/common"
 	"github.com/taubyte/go-interfaces/services/substrate/counters"
 	smartOps "github.com/taubyte/go-interfaces/services/substrate/smartops"
 	structureSpec "github.com/taubyte/go-specs/structure"
+	"github.com/taubyte/p2p/streams/command"
+	"github.com/taubyte/p2p/streams/command/response"
 )
 
 type Command interface {
-	Send(ctx context.Context, body map[string]interface{}) (streams.Response, error)
-	SendTo(ctx context.Context, cid cid.Cid, body map[string]interface{}) (streams.Response, error)
+	Send(ctx context.Context, body map[string]interface{}) (response.Response, error)
+	SendTo(ctx context.Context, cid cid.Cid, body map[string]interface{}) (response.Response, error)
 }
 
 type Stream interface {
@@ -24,7 +25,7 @@ type Stream interface {
 	Close()
 }
 
-type StreamHandler func(cmd streams.Command) (resp streams.Response, err error)
+type StreamHandler func(cmd command.Command) (resp response.Response, err error)
 
 type CommandService interface {
 	Close()
@@ -57,7 +58,7 @@ type Service interface {
 
 type Serviceable interface {
 	common.Serviceable
-	Handle(data streams.Command) (time.Time, streams.Response, error)
+	Handle(data command.Command) (time.Time, response.Response, error)
 	Name() string
 	Close()
 	Config() *structureSpec.Function

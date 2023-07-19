@@ -6,10 +6,10 @@ import (
 
 	"github.com/ipfs/go-cid"
 	"github.com/taubyte/go-interfaces/kvdb"
-	peer "github.com/taubyte/go-interfaces/p2p/peer"
 	"github.com/taubyte/go-interfaces/services"
 	smartOps "github.com/taubyte/go-interfaces/services/substrate/smartops"
 	structureSpec "github.com/taubyte/go-specs/structure"
+	peer "github.com/taubyte/p2p/peer"
 )
 
 type Context struct {

@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/taubyte/go-interfaces/p2p/keypair"
 	seerIface "github.com/taubyte/go-interfaces/services/seer"
+	"github.com/taubyte/p2p/keypair"
 
 	spec "github.com/taubyte/go-specs/common"
 )

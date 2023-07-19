@@ -1,8 +1,8 @@
 package common
 
-import peer "github.com/taubyte/go-interfaces/p2p/peer"
+import peer "github.com/taubyte/p2p/peer"
 
 type Service interface {
-	Node() peer.Node
+	Node() *peer.Node
 	Close() error
 }
