@@ -25,7 +25,7 @@ type Stream interface {
 	Close()
 }
 
-type StreamHandler func(cmd command.Command) (resp response.Response, err error)
+type StreamHandler func(cmd *command.Command) (resp response.Response, err error)
 
 type CommandService interface {
 	Close()
@@ -58,7 +58,7 @@ type Service interface {
 
 type Serviceable interface {
 	common.Serviceable
-	Handle(data command.Command) (time.Time, response.Response, error)
+	Handle(data *command.Command) (time.Time, response.Response, error)
 	Name() string
 	Close()
 	Config() *structureSpec.Function

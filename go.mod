@@ -5,6 +5,7 @@ go 1.19
 replace (
 	github.com/taubyte/dreamland => /home/tafkhan/Documents/Work/Taubyte/new/dreamland
 	github.com/taubyte/go-interfaces => /home/tafkhan/Documents/Work/Taubyte/Repos/go-interfaces
+	github.com/taubyte/http => /home/tafkhan/Documents/Work/Taubyte/Repos/http
 	github.com/taubyte/odo => /home/tafkhan/Documents/Work/Taubyte/new/odo
 	github.com/taubyte/p2p => /home/tafkhan/Documents/Work/Taubyte/new/p2p
 	github.com/taubyte/vm => /home/tafkhan/Documents/Work/Taubyte/Repos/vm
