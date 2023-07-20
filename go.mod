@@ -17,6 +17,7 @@ require (
 	github.com/ipfs/go-datastore v0.6.0
 	github.com/ipfs/go-log/v2 v2.5.1
 	github.com/libp2p/go-libp2p v0.27.1
+	github.com/libp2p/go-libp2p-core v0.20.1
 	github.com/libp2p/go-libp2p-pubsub v0.9.3
 	github.com/multiformats/go-multiaddr v0.9.0
 	github.com/spf13/afero v1.9.5
@@ -24,9 +25,6 @@ require (
 	github.com/taubyte/go-specs v0.10.2-pre
 	github.com/taubyte/http v0.10.2
 	github.com/taubyte/p2p v0.9.0
-	github.com/urfave/cli/v2 v2.25.3
-	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
-	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
@@ -45,7 +43,6 @@ require (
 	github.com/containerd/cgroups v1.1.0 // indirect
 	github.com/containerd/containerd v1.6.2 // indirect
 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
-	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/crackcomm/go-gitignore v0.0.0-20170627025303-887ab5e44cc3 // indirect
 	github.com/cskr/pubsub v1.0.2 // indirect
 	github.com/davidlazar/go-crypto v0.0.0-20200604182044-b73af7476f6c // indirect
@@ -155,7 +152,6 @@ require (
 	github.com/quic-go/webtransport-go v0.5.2 // indirect
 	github.com/raulk/go-watchdog v1.3.0 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
-	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/taubyte/domain-validation v1.0.0 // indirect
@@ -165,7 +161,6 @@ require (
 	github.com/whyrusleeping/go-keyspace v0.0.0-20160322163242-5b898ac5add1 // indirect
 	github.com/whyrusleeping/multiaddr-filter v0.0.0-20160516205228-e903e4adabd7 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
-	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/otel v1.14.0 // indirect
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
@@ -175,6 +170,7 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/crypto v0.7.0 // indirect
+	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
 	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
