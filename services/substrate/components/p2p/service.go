@@ -6,9 +6,7 @@ import (
 
 	"github.com/ipfs/go-cid"
 	"github.com/libp2p/go-libp2p/core/peer"
-	"github.com/taubyte/go-interfaces/services/substrate/common"
-	"github.com/taubyte/go-interfaces/services/substrate/counters"
-	smartOps "github.com/taubyte/go-interfaces/services/substrate/smartops"
+	"github.com/taubyte/go-interfaces/services/substrate/components"
 	structureSpec "github.com/taubyte/go-specs/structure"
 	"github.com/taubyte/p2p/streams/command"
 	"github.com/taubyte/p2p/streams/command/response"
@@ -47,17 +45,15 @@ func (m *MatchDefinition) CachePrefix() string {
 }
 
 type Service interface {
-	common.Service
+	components.ServiceComponent
 	Stream(ctx context.Context, projectID, applicationID, protocol string) (Stream, error)
 	StartStream(name, protocol string, handler StreamHandler) (CommandService, error)
-	SmartOps() smartOps.Service
-	Counter() counters.Service
 	LookupService(matcher *MatchDefinition) (config *structureSpec.Service, application string, err error)
 	Discover(ctx context.Context, max int, timeout time.Duration) ([]peer.AddrInfo, error)
 }
 
 type Serviceable interface {
-	common.Serviceable
+	components.Serviceable
 	Handle(data *command.Command) (time.Time, response.Response, error)
 	Name() string
 	Close()
