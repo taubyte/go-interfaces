@@ -33,6 +33,7 @@ type Service interface {
 	Orbitals() []vm.Plugin
 
 	Dev() bool
+	Verbose() bool
 	Context() context.Context
 
 	// // P2P returns the p2p service attached to the Substrate
