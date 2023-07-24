@@ -2,17 +2,6 @@ module github.com/taubyte/go-interfaces
 
 go 1.19
 
-replace (
-	github.com/taubyte/config-compiler => /home/tafkhan/Documents/Work/Taubyte/new/config-compiler
-	github.com/taubyte/dreamland => /home/tafkhan/Documents/Work/Taubyte/new/dreamland
-	github.com/taubyte/go-interfaces => /home/tafkhan/Documents/Work/Taubyte/Repos/go-interfaces
-	github.com/taubyte/http => /home/tafkhan/Documents/Work/Taubyte/Repos/http
-	github.com/taubyte/odo => /home/tafkhan/Documents/Work/Taubyte/new/odo
-	github.com/taubyte/p2p => /home/tafkhan/Documents/Work/Taubyte/new/p2p
-	github.com/taubyte/vm => /home/tafkhan/Documents/Work/Taubyte/Repos/vm
-	github.com/taubyte/vm-core-plugins => /home/tafkhan/Documents/Work/Taubyte/Repos/vm-core-plugins
-)
-
 require (
 	github.com/ipfs/go-cid v0.4.1
 	github.com/ipfs/go-datastore v0.6.0
@@ -24,8 +13,8 @@ require (
 	github.com/spf13/afero v1.9.5
 	github.com/taubyte/go-simple-container v0.4.2
 	github.com/taubyte/go-specs v0.10.2-pre
-	github.com/taubyte/http v0.10.2
-	github.com/taubyte/p2p v0.9.0
+	github.com/taubyte/http v0.10.3
+	github.com/taubyte/p2p v0.9.1
 )
 
 require (
