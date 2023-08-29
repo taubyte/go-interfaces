@@ -3,7 +3,6 @@ package components
 import (
 	"github.com/ipfs/go-cid"
 	"github.com/taubyte/go-interfaces/services/substrate"
-	tns "github.com/taubyte/go-interfaces/services/tns"
 	matcherSpec "github.com/taubyte/go-specs/matcher"
 )
 
@@ -13,11 +12,27 @@ type ServiceComponent interface {
 	Cache() Cache
 }
 
+/*
+GetOptions defines the parameters of serviceables returned by the Cache.Get() method
+
+Validation: if set asset cid, and config commit are validated of the serviceable are validated
+
+Branch: used by the validation method, if not set spec.DefaultBranch is used, currently
+this is the only branch handled by production deployed protocols.
+
+MatchIndex: the required Match Index for a serviceable
+if not set then matcherSpec.HighMatch is used
+*/
+type GetOptions struct {
+	Validation bool
+	Branch     string
+	MatchIndex *matcherSpec.Index
+}
+
 type Cache interface {
-	Add(Serviceable) (Serviceable, error)
-	Get(MatchDefinition) ([]Serviceable, error)
+	Add(serviceable Serviceable, branch string) (Serviceable, error)
+	Get(MatchDefinition, GetOptions) ([]Serviceable, error)
 	Remove(Serviceable)
-	Validate(serviceables []Serviceable, branch string, tns tns.Client) error
 	Close()
 }
 
