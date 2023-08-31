@@ -22,7 +22,6 @@ type Messaging interface {
 
 type Serviceable interface {
 	components.Serviceable
-	Config() *structureSpec.Function
 	HandleMessage(msg *pubsub.Message) (time.Time, error)
 	Name() string
 }

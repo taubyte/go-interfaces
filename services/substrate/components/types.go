@@ -1,9 +1,9 @@
 package components
 
 import (
-	"github.com/ipfs/go-cid"
 	"github.com/taubyte/go-interfaces/services/substrate"
 	matcherSpec "github.com/taubyte/go-specs/matcher"
+	structureSpec "github.com/taubyte/go-specs/structure"
 )
 
 type ServiceComponent interface {
@@ -39,13 +39,18 @@ type Cache interface {
 type Serviceable interface {
 	Match(MatchDefinition) matcherSpec.Index
 	Validate(MatchDefinition) error
-	Project() (cid.Cid, error)
-	Commit() string
 	Matcher() MatchDefinition
-	Id() string
 	Ready() error
-	Close()
+
+	Project() string
+	Application() string
+	Id() string
+	Structure() *structureSpec.Function
+
+	Commit() string
+
 	Service() ServiceComponent
+	Close()
 }
 
 type MatchDefinition interface {
