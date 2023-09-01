@@ -45,12 +45,16 @@ type Serviceable interface {
 	Project() string
 	Application() string
 	Id() string
-	Structure() *structureSpec.Function
 
 	Commit() string
 
 	Service() ServiceComponent
 	Close()
+}
+
+type FunctionServiceable interface {
+	Serviceable
+	Config() *structureSpec.Function
 }
 
 type MatchDefinition interface {

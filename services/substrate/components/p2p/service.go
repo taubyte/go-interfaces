@@ -53,7 +53,7 @@ type Service interface {
 }
 
 type Serviceable interface {
-	components.Serviceable
+	components.FunctionServiceable
 	Handle(data *command.Command) (time.Time, response.Response, error)
 	Name() string
 	Close()
