@@ -47,6 +47,7 @@ type Serviceable interface {
 	Id() string
 
 	Commit() string
+	AssetId() string
 
 	Service() ServiceComponent
 	Close()
