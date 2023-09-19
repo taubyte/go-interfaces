@@ -12,7 +12,7 @@ require (
 	github.com/libp2p/go-libp2p-pubsub v0.9.3
 	github.com/multiformats/go-multiaddr v0.10.1
 	github.com/spf13/afero v1.9.5
-	github.com/taubyte/go-simple-container v0.4.2
+	github.com/taubyte/go-simple-container v0.4.4
 	github.com/taubyte/go-specs v0.10.6
 	github.com/taubyte/http v0.10.3
 	github.com/taubyte/p2p v0.9.1
