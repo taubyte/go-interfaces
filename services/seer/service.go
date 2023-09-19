@@ -10,7 +10,6 @@ type Service interface {
 	services.DBService
 	services.GitHubAuth
 	Resolver() Resolver
-	ListNodes() ([]string, error)
 }
 
 type Resolver interface {
