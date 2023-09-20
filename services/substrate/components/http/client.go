@@ -6,5 +6,5 @@ import (
 )
 
 type Client interface {
-	CheckCache(host string, path string, method string) (map[peer.ID]*client.Response, map[peer.ID]error, error)
+	ProxyStreams(host string, path string, method string) (map[peer.ID]*client.Response, map[peer.ID]error, error)
 }

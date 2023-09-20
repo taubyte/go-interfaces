@@ -2,8 +2,6 @@ module github.com/taubyte/go-interfaces
 
 go 1.19
 
-replace github.com/taubyte/p2p => ../p2p
-
 require (
 	github.com/ipfs/go-cid v0.4.1
 	github.com/ipfs/go-log/v2 v2.5.1
@@ -15,7 +13,7 @@ require (
 	github.com/taubyte/go-simple-container v0.4.4
 	github.com/taubyte/go-specs v0.10.6
 	github.com/taubyte/http v0.10.3
-	github.com/taubyte/p2p v0.9.1
+	github.com/taubyte/p2p v0.10.1-0.20230919152907-f26fd82a39d3
 )
 
 require (

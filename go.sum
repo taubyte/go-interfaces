@@ -678,6 +678,8 @@ github.com/taubyte/go-specs v0.10.6 h1:iSy5gJ6qpEICNKdQsyG9BiFn0Pf3/SgYk/P5rbHIp
 github.com/taubyte/go-specs v0.10.6/go.mod h1:HWMNhpmQzy/1Eg6s5TICKl+/talTXLX6jYEUuWCsaGg=
 github.com/taubyte/http v0.10.3 h1:UUfDVllEgDE7qD0CPPBXd2+jjbTH5If2f/1G3//9d7A=
 github.com/taubyte/http v0.10.3/go.mod h1:iYTdJl6dk3m1tC6H5WAJRX/R81ROwy7cg++zazkOqcY=
+github.com/taubyte/p2p v0.10.1-0.20230919152907-f26fd82a39d3 h1:NbgrtVT1D0IOnIidXWIA8JN7SykD5QRT20Ak+YTFflc=
+github.com/taubyte/p2p v0.10.1-0.20230919152907-f26fd82a39d3/go.mod h1:Uo464wZDiMeuP7GDHvjUjwGbnm72ByuGofk2O2m58yI=
 github.com/taubyte/utils v0.1.7 h1:iFMOxhBNJKdUrD+Z1UjP9W5559LlQN8178V54uLngdk=
 github.com/taubyte/utils v0.1.7/go.mod h1:MWO21qZu7AcBwJkJLsltwb3zWyN84xSexLCU28JC4gM=
 github.com/ugorji/go v1.1.4/go.mod h1:uQMGLiO92mf5W77hV/PUCpI3pbzQx3CRekS0kk+RGrc=
